@@ -2,6 +2,7 @@
 import React from 'react';
 import { Progress } from '@/components/ui/progress';
 import { useShoppingList } from '@/context/ShoppingListContext';
+import { cn } from '@/lib/utils';
 
 type BudgetProgressProps = {
   listId: string;
@@ -27,8 +28,11 @@ const BudgetProgress: React.FC<BudgetProgressProps> = ({ listId }) => {
       </div>
       <Progress 
         value={percentage} 
-        className={`h-2 ${isOverBudget ? 'bg-red-200' : 'bg-blue-100'}`} 
-        indicatorClassName={isOverBudget ? 'bg-shoppingapp-danger' : 'bg-shoppingapp-primary'}
+        className={cn(
+          'h-2',
+          isOverBudget ? 'bg-red-200' : 'bg-blue-100',
+          isOverBudget ? '[&>div]:bg-shoppingapp-danger' : '[&>div]:bg-shoppingapp-primary'
+        )}
       />
     </div>
   );

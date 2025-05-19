@@ -14,7 +14,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Checkbox } from '@/components/ui/checkbox';
 import { Separator } from '@/components/ui/separator';
 import { Textarea } from '@/components/ui/textarea';
-import { ShoppingCart, Plus, PackageOpen } from 'lucide-react';
+import { ShoppingCart, Plus, PackageOpen, Search } from 'lucide-react';
 import { Item, Unit } from '@/types';
 
 const ListDetailPage = () => {
