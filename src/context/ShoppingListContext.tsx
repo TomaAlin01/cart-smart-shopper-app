@@ -1,4 +1,3 @@
-
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { ShoppingList, Item, Category, Store, Unit, ShoppingListContextType } from '@/types';
 import { toast } from "sonner";
@@ -28,9 +27,9 @@ export const DEFAULT_STORES: Store[] = [
   { id: 'online', name: 'Online' },
 ];
 
-// Default units
+// Default units - updated to include 'bottle'
 export const DEFAULT_UNITS: Unit[] = [
-  'pcs', 'kg', 'g', 'l', 'ml', 'pack', 'box'
+  'pcs', 'kg', 'g', 'l', 'ml', 'pack', 'box', 'bottle'
 ];
 
 // Generate a unique ID

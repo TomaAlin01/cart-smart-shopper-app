@@ -10,7 +10,7 @@ export type Store = {
   name: string;
 };
 
-export type Unit = 'pcs' | 'kg' | 'g' | 'l' | 'ml' | 'pack' | 'box';
+export type Unit = 'pcs' | 'kg' | 'g' | 'l' | 'ml' | 'pack' | 'box' | 'bottle';
 
 export type Item = {
   id: string;
