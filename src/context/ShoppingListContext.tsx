@@ -1,3 +1,4 @@
+
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { ShoppingList, Item, Category, Store, Unit, ShoppingListContextType } from '@/types';
 import { toast } from "sonner";
@@ -35,7 +36,7 @@ export const DEFAULT_UNITS: Unit[] = [
 // Generate a unique ID
 const generateId = () => Math.random().toString(36).substring(2, 11);
 
-// Default shopping list
+// Default shopping lists with more items
 const DEFAULT_SHOPPING_LIST: ShoppingList = {
   id: generateId(),
   name: 'Groceries',
@@ -62,6 +63,158 @@ const DEFAULT_SHOPPING_LIST: ShoppingList = {
       price: 3.49,
       isChecked: false,
       storeLocation: 'Bakery section'
+    },
+    {
+      id: generateId(),
+      name: 'Eggs',
+      categoryId: 'dairy',
+      quantity: 12,
+      unit: 'pcs',
+      price: 4.99,
+      isChecked: false,
+      storeLocation: 'Refrigerated section'
+    },
+    {
+      id: generateId(),
+      name: 'Bananas',
+      categoryId: 'produce',
+      quantity: 1,
+      unit: 'kg',
+      price: 1.99,
+      isChecked: true,
+      storeLocation: 'Produce section'
+    },
+    {
+      id: generateId(),
+      name: 'Chicken Breast',
+      categoryId: 'meat',
+      quantity: 0.5,
+      unit: 'kg',
+      price: 8.99,
+      isChecked: false,
+      storeLocation: 'Meat department'
+    }
+  ]
+};
+
+// Weekly meal prep list
+const MEAL_PREP_LIST: ShoppingList = {
+  id: generateId(),
+  name: 'Weekly Meal Prep',
+  createdAt: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000), // 3 days ago
+  updatedAt: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000), // 1 day ago
+  budget: 85,
+  items: [
+    {
+      id: generateId(),
+      name: 'Brown Rice',
+      categoryId: 'canned',
+      quantity: 1,
+      unit: 'kg',
+      price: 3.49,
+      isChecked: true,
+      storeLocation: 'Aisle 5'
+    },
+    {
+      id: generateId(),
+      name: 'Chicken Thighs',
+      categoryId: 'meat',
+      quantity: 1,
+      unit: 'kg',
+      price: 7.99,
+      isChecked: false,
+      storeLocation: 'Meat department'
+    },
+    {
+      id: generateId(),
+      name: 'Broccoli',
+      categoryId: 'produce',
+      quantity: 2,
+      unit: 'pcs',
+      price: 2.49,
+      isChecked: true,
+      storeLocation: 'Produce section'
+    },
+    {
+      id: generateId(),
+      name: 'Sweet Potatoes',
+      categoryId: 'produce',
+      quantity: 0.7,
+      unit: 'kg',
+      price: 3.29,
+      isChecked: false,
+      storeLocation: 'Produce section'
+    },
+    {
+      id: generateId(),
+      name: 'Quinoa',
+      categoryId: 'canned',
+      quantity: 1,
+      unit: 'pack',
+      price: 4.99,
+      isChecked: false,
+      storeLocation: 'Aisle 7'
+    },
+    {
+      id: generateId(),
+      name: 'Avocados',
+      categoryId: 'produce',
+      quantity: 3,
+      unit: 'pcs',
+      price: 1.29,
+      isChecked: false,
+      storeLocation: 'Produce section'
+    }
+  ]
+};
+
+// Household items list
+const HOUSEHOLD_LIST: ShoppingList = {
+  id: generateId(),
+  name: 'Household Items',
+  createdAt: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000), // 7 days ago
+  updatedAt: new Date(Date.now() - 6 * 24 * 60 * 60 * 1000), // 6 days ago
+  budget: 50,
+  items: [
+    {
+      id: generateId(),
+      name: 'Laundry Detergent',
+      categoryId: 'household',
+      quantity: 1,
+      unit: 'bottle',
+      price: 12.99,
+      isChecked: false,
+      storeLocation: 'Cleaning supplies'
+    },
+    {
+      id: generateId(),
+      name: 'Paper Towels',
+      categoryId: 'household',
+      quantity: 2,
+      unit: 'pack',
+      price: 6.99,
+      isChecked: true,
+      storeLocation: 'Paper goods'
+    },
+    {
+      id: generateId(),
+      name: 'Dish Soap',
+      categoryId: 'household',
+      quantity: 1,
+      unit: 'bottle',
+      price: 3.49,
+      isChecked: false,
+      storeLocation: 'Cleaning supplies'
+    },
+    {
+      id: generateId(),
+      name: 'Toothpaste',
+      categoryId: 'personal',
+      quantity: 1,
+      unit: 'pcs',
+      price: 2.99,
+      isChecked: false,
+      storeLocation: 'Personal care'
     }
   ]
 };
@@ -77,7 +230,7 @@ export const useShoppingList = () => {
 };
 
 export const ShoppingListProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [lists, setLists] = useState<ShoppingList[]>([DEFAULT_SHOPPING_LIST]);
+  const [lists, setLists] = useState<ShoppingList[]>([DEFAULT_SHOPPING_LIST, MEAL_PREP_LIST, HOUSEHOLD_LIST]);
   const [categories] = useState<Category[]>(DEFAULT_CATEGORIES);
   const [stores] = useState<Store[]>(DEFAULT_STORES);
   const [currentListId, setCurrentListId] = useState<string | null>(DEFAULT_SHOPPING_LIST.id);
