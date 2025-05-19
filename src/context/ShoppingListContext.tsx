@@ -92,6 +92,56 @@ const DEFAULT_SHOPPING_LIST: ShoppingList = {
       price: 8.99,
       isChecked: false,
       storeLocation: 'Meat department'
+    },
+    {
+      id: generateId(),
+      name: 'Spinach',
+      categoryId: 'produce',
+      quantity: 1,
+      unit: 'pack',
+      price: 3.49,
+      isChecked: false,
+      storeLocation: 'Produce section'
+    },
+    {
+      id: generateId(),
+      name: 'Greek Yogurt',
+      categoryId: 'dairy',
+      quantity: 1,
+      unit: 'pack',
+      price: 4.99,
+      isChecked: true,
+      storeLocation: 'Aisle 3'
+    },
+    {
+      id: generateId(),
+      name: 'Pasta',
+      categoryId: 'canned',
+      quantity: 2,
+      unit: 'pack',
+      price: 1.79,
+      isChecked: false,
+      storeLocation: 'Aisle 7'
+    },
+    {
+      id: generateId(),
+      name: 'Tomato Sauce',
+      categoryId: 'canned',
+      quantity: 1,
+      unit: 'bottle',
+      price: 2.49,
+      isChecked: true,
+      storeLocation: 'Aisle 5'
+    },
+    {
+      id: generateId(),
+      name: 'Coffee',
+      categoryId: 'beverages',
+      quantity: 1,
+      unit: 'pack',
+      price: 7.99,
+      isChecked: false,
+      storeLocation: 'Aisle 8'
     }
   ]
 };
@@ -163,6 +213,56 @@ const MEAL_PREP_LIST: ShoppingList = {
       price: 1.29,
       isChecked: false,
       storeLocation: 'Produce section'
+    },
+    {
+      id: generateId(),
+      name: 'Ground Turkey',
+      categoryId: 'meat',
+      quantity: 0.5,
+      unit: 'kg',
+      price: 6.99,
+      isChecked: true,
+      storeLocation: 'Meat department'
+    },
+    {
+      id: generateId(),
+      name: 'Bell Peppers',
+      categoryId: 'produce',
+      quantity: 3,
+      unit: 'pcs',
+      price: 1.49,
+      isChecked: true,
+      storeLocation: 'Produce section'
+    },
+    {
+      id: generateId(),
+      name: 'Black Beans',
+      categoryId: 'canned',
+      quantity: 2,
+      unit: 'can',
+      price: 0.99,
+      isChecked: false,
+      storeLocation: 'Aisle 4'
+    },
+    {
+      id: generateId(),
+      name: 'Eggs',
+      categoryId: 'dairy',
+      quantity: 18,
+      unit: 'pcs',
+      price: 5.99,
+      isChecked: true,
+      storeLocation: 'Refrigerated section'
+    },
+    {
+      id: generateId(),
+      name: 'Chicken Broth',
+      categoryId: 'canned',
+      quantity: 1,
+      unit: 'bottle',
+      price: 3.49,
+      isChecked: false,
+      storeLocation: 'Aisle 5'
     }
   ]
 };
@@ -214,6 +314,157 @@ const HOUSEHOLD_LIST: ShoppingList = {
       price: 2.99,
       isChecked: false,
       storeLocation: 'Personal care'
+    },
+    {
+      id: generateId(),
+      name: 'Tissues',
+      categoryId: 'household',
+      quantity: 3,
+      unit: 'box',
+      price: 1.99,
+      isChecked: true,
+      storeLocation: 'Paper goods'
+    },
+    {
+      id: generateId(),
+      name: 'Hand Soap',
+      categoryId: 'personal',
+      quantity: 2,
+      unit: 'bottle',
+      price: 3.99,
+      isChecked: false,
+      storeLocation: 'Personal care'
+    },
+    {
+      id: generateId(),
+      name: 'Bathroom Cleaner',
+      categoryId: 'household',
+      quantity: 1,
+      unit: 'bottle',
+      price: 4.49,
+      isChecked: true,
+      storeLocation: 'Cleaning supplies'
+    },
+    {
+      id: generateId(),
+      name: 'Toilet Paper',
+      categoryId: 'household',
+      quantity: 1,
+      unit: 'pack',
+      price: 8.99,
+      isChecked: false,
+      storeLocation: 'Paper goods'
+    },
+    {
+      id: generateId(),
+      name: 'Light Bulbs',
+      categoryId: 'household',
+      quantity: 4,
+      unit: 'pcs',
+      price: 3.29,
+      isChecked: false,
+      storeLocation: 'Home goods'
+    },
+    {
+      id: generateId(),
+      name: 'Shampoo',
+      categoryId: 'personal',
+      quantity: 1,
+      unit: 'bottle',
+      price: 5.99,
+      isChecked: true,
+      storeLocation: 'Personal care'
+    }
+  ]
+};
+
+// Create a Party Supplies list
+const PARTY_LIST: ShoppingList = {
+  id: generateId(),
+  name: 'Party Supplies',
+  createdAt: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000), // 2 days ago
+  updatedAt: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000), // 2 days ago
+  budget: 120,
+  items: [
+    {
+      id: generateId(),
+      name: 'Paper Plates',
+      categoryId: 'household',
+      quantity: 3,
+      unit: 'pack',
+      price: 4.99,
+      isChecked: true,
+      storeLocation: 'Party supplies'
+    },
+    {
+      id: generateId(),
+      name: 'Plastic Cups',
+      categoryId: 'household',
+      quantity: 2,
+      unit: 'pack',
+      price: 3.99,
+      isChecked: true,
+      storeLocation: 'Party supplies'
+    },
+    {
+      id: generateId(),
+      name: 'Napkins',
+      categoryId: 'household',
+      quantity: 2,
+      unit: 'pack',
+      price: 2.49,
+      isChecked: false,
+      storeLocation: 'Paper goods'
+    },
+    {
+      id: generateId(),
+      name: 'Balloons',
+      categoryId: 'other',
+      quantity: 1,
+      unit: 'pack',
+      price: 5.99,
+      isChecked: false,
+      storeLocation: 'Party supplies'
+    },
+    {
+      id: generateId(),
+      name: 'Soft Drinks',
+      categoryId: 'beverages',
+      quantity: 4,
+      unit: 'bottle',
+      price: 1.99,
+      isChecked: false,
+      storeLocation: 'Beverage aisle'
+    },
+    {
+      id: generateId(),
+      name: 'Chips',
+      categoryId: 'snacks',
+      quantity: 5,
+      unit: 'pack',
+      price: 3.49,
+      isChecked: true,
+      storeLocation: 'Snack aisle'
+    },
+    {
+      id: generateId(),
+      name: 'Dip',
+      categoryId: 'snacks',
+      quantity: 2,
+      unit: 'pcs',
+      price: 2.99,
+      isChecked: false,
+      storeLocation: 'Refrigerated section'
+    },
+    {
+      id: generateId(),
+      name: 'Pizza',
+      categoryId: 'frozen',
+      quantity: 3,
+      unit: 'pcs',
+      price: 6.99,
+      isChecked: false,
+      storeLocation: 'Frozen foods'
     }
   ]
 };
@@ -229,7 +480,7 @@ export const useShoppingList = () => {
 };
 
 export const ShoppingListProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [lists, setLists] = useState<ShoppingList[]>([DEFAULT_SHOPPING_LIST, MEAL_PREP_LIST, HOUSEHOLD_LIST]);
+  const [lists, setLists] = useState<ShoppingList[]>([DEFAULT_SHOPPING_LIST, MEAL_PREP_LIST, HOUSEHOLD_LIST, PARTY_LIST]);
   const [categories] = useState<Category[]>(DEFAULT_CATEGORIES);
   const [stores] = useState<Store[]>(DEFAULT_STORES);
   const [currentListId, setCurrentListId] = useState<string | null>(DEFAULT_SHOPPING_LIST.id);
