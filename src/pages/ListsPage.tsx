@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useShoppingList } from '@/context/ShoppingListContext';
@@ -54,6 +53,17 @@ const ListsPage = () => {
       <AppHeader title="My Shopping Lists" />
       
       <main className="flex-1 p-6 space-y-6 max-w-3xl mx-auto w-full">
+        <div className="flex justify-between items-center mb-6">
+          <h2 className="text-xl font-semibold">Shopping Lists</h2>
+          <Button 
+            onClick={() => setIsDialogOpen(true)}
+            className="rounded-full"
+          >
+            <Plus className="mr-2 h-4 w-4" />
+            New List
+          </Button>
+        </div>
+
         {lists.length === 0 ? (
           <EmptyState
             title="No shopping lists yet"
@@ -130,17 +140,6 @@ const ListsPage = () => {
           </div>
         )}
       </main>
-
-      <div className="sticky bottom-8 flex justify-center">
-        <Button 
-          className="shadow-lg bg-gradient-to-r from-shoppingapp-primary to-blue-600 hover:opacity-90 rounded-full px-6 py-6"
-          size="lg"
-          onClick={() => setIsDialogOpen(true)}
-        >
-          <Plus className="mr-2 h-5 w-5" />
-          New Shopping List
-        </Button>
-      </div>
 
       <Dialog open={isDialogOpen} onOpenChange={(open) => {
         setIsDialogOpen(open);

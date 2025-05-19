@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useShoppingList } from '@/context/ShoppingListContext';
@@ -11,8 +10,6 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from '
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Checkbox } from '@/components/ui/checkbox';
-import { Separator } from '@/components/ui/separator';
 import { Textarea } from '@/components/ui/textarea';
 import { 
   ShoppingCart, Plus, PackageOpen, Search, 
@@ -190,6 +187,17 @@ const ListDetailPage = () => {
       </div>
       
       <main className="flex-1 p-6 max-w-3xl mx-auto w-full">
+        <div className="flex justify-between items-center mb-6">
+          <h2 className="text-xl font-semibold">Items</h2>
+          <Button 
+            onClick={() => setIsAddDialogOpen(true)}
+            className="rounded-full"
+          >
+            <Plus className="mr-2 h-4 w-4" />
+            Add Item
+          </Button>
+        </div>
+
         {displayedItems.length === 0 ? (
           searchQuery ? (
             <EmptyState
@@ -317,17 +325,6 @@ const ListDetailPage = () => {
           </div>
         )}
       </main>
-
-      <div className="sticky bottom-8 flex justify-center">
-        <Button 
-          className="shadow-lg bg-gradient-to-r from-shoppingapp-primary to-blue-600 hover:opacity-90 rounded-full px-6 py-6"
-          size="lg"
-          onClick={() => setIsAddDialogOpen(true)}
-        >
-          <Plus className="mr-2 h-5 w-5" />
-          Add Item
-        </Button>
-      </div>
 
       <Dialog open={isAddDialogOpen} onOpenChange={(open) => {
         setIsAddDialogOpen(open);
