@@ -19,21 +19,35 @@ const BudgetProgress: React.FC<BudgetProgressProps> = ({ listId }) => {
   const isOverBudget = total > (list.budget || 0);
   
   return (
-    <div className="px-4 py-3">
-      <div className="flex justify-between items-center mb-2">
-        <span className="text-sm font-medium text-shoppingapp-text">Budget</span>
-        <span className={`text-sm font-medium ${isOverBudget ? 'text-shoppingapp-danger' : 'text-shoppingapp-text'}`}>
-          ${total.toFixed(2)} / ${list.budget.toFixed(2)}
-        </span>
+    <div className="px-6 py-4 bg-white/50 backdrop-blur-sm shadow-sm">
+      <div className="flex justify-between items-center mb-3">
+        <div className="flex flex-col">
+          <span className="text-sm font-medium text-shoppingapp-muted">Budget</span>
+          <span className="text-xl font-semibold">
+            ${list.budget.toFixed(2)}
+          </span>
+        </div>
+        <div className="flex flex-col text-right">
+          <span className="text-sm font-medium text-shoppingapp-muted">Spent</span>
+          <span className={`text-xl font-semibold ${isOverBudget ? 'text-shoppingapp-danger' : 'text-shoppingapp-primary'}`}>
+            ${total.toFixed(2)}
+          </span>
+        </div>
       </div>
+      
       <Progress 
         value={percentage} 
         className={cn(
-          'h-2',
-          isOverBudget ? 'bg-red-200' : 'bg-blue-100',
-          isOverBudget ? '[&>div]:bg-shoppingapp-danger' : '[&>div]:bg-shoppingapp-primary'
+          'h-2.5 rounded-full bg-blue-100',
+          isOverBudget ? 'bg-red-100' : 'bg-blue-100'
         )}
       />
+      
+      <div className="flex justify-between mt-2 text-xs text-shoppingapp-muted">
+        <span>0%</span>
+        <span>{isOverBudget ? 'Exceeded budget!' : `${Math.round(percentage)}% spent`}</span>
+        <span>100%</span>
+      </div>
     </div>
   );
 };
