@@ -1,6 +1,5 @@
-
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { ShoppingList, Item, Category, Store, Unit } from '@/types';
+import { ShoppingList, Item, Category, Store, Unit, ShoppingListContextType } from '@/types';
 import { toast } from "sonner";
 
 // Default categories
@@ -65,24 +64,6 @@ const DEFAULT_SHOPPING_LIST: ShoppingList = {
       storeLocation: 'Bakery section'
     }
   ]
-};
-
-type ShoppingListContextType = {
-  lists: ShoppingList[];
-  categories: Category[];
-  stores: Store[];
-  currentListId: string | null;
-  setCurrentListId: (id: string | null) => void;
-  addList: (name: string, budget?: number) => void;
-  updateList: (id: string, updates: Partial<Omit<ShoppingList, 'id' | 'items'>>) => void;
-  deleteList: (id: string) => void;
-  addItemToList: (listId: string, item: Omit<Item, 'id' | 'isChecked'>) => void;
-  updateItemInList: (listId: string, itemId: string, updates: Partial<Omit<Item, 'id'>>) => void;
-  deleteItemFromList: (listId: string, itemId: string) => void;
-  toggleItemCheck: (listId: string, itemId: string) => void;
-  getListTotal: (listId: string) => number;
-  getCheckedTotal: (listId: string) => number;
-  searchItems: (listId: string, query: string) => Item[];
 };
 
 const ShoppingListContext = createContext<ShoppingListContextType | undefined>(undefined);
@@ -279,6 +260,7 @@ export const ShoppingListProvider: React.FC<{ children: React.ReactNode }> = ({ 
     lists,
     categories,
     stores,
+    DEFAULT_UNITS,
     currentListId,
     setCurrentListId,
     addList,
