@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,6 +62,17 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				// App specific colors
+				shoppingapp: {
+					primary: '#3b82f6',    // blue-500
+					secondary: '#10b981',  // emerald-500
+					background: '#f9fafb', // gray-50
+					card: '#ffffff',
+					text: '#1f2937',       // gray-800
+					muted: '#6b7280',      // gray-500
+					border: '#e5e7eb',     // gray-200
+					danger: '#ef4444',     // red-500
 				}
 			},
 			borderRadius: {
